@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 import pygame
 from constants import SCREEN_WIDTH
 from constants import SCREEN_HEIGHT
