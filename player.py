@@ -1,9 +1,10 @@
+import pygame
 from circleshape import CircleShape
 from constants import PLAYER_RADIUS
 from constants import LINE_WIDTH
 
 class Player(CircleShape):
-    def __init__(self, x, y, PLAYER_RADIUS):
+    def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
         
@@ -16,5 +17,5 @@ class Player(CircleShape):
         return [a, b, c]
     
     def draw(self, screen):
-        pygame.draw.polygon("white", self.triangle(), LINE_WIDTH)
+        pygame.draw.polygon(screen, "white", self.triangle(), LINE_WIDTH)
         
