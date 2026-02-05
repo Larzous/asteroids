@@ -1,7 +1,6 @@
 import pygame
 from circleshape import CircleShape
-from constants import PLAYER_RADIUS
-from constants import LINE_WIDTH
+from constants import PLAYER_RADIUS, LINE_WIDTH
 
 class Player(CircleShape):
     def __init__(self, x, y):
