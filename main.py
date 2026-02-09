@@ -1,10 +1,14 @@
 # pylint: disable=no-member
+import sys
+
 import pygame
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
-from logger import log_state
-from player import Player
+
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from logger import log_event, log_state
+from player import Player
+
 
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
@@ -34,6 +38,11 @@ def main():
         # player.update(dt)
         # player.draw(screen)
         updatable.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collides_with(player):
+                log_event("player_hit")
+                print("Game over!")
+                sys.exit()
         for thing in drawable:
             thing.draw(screen)
         pygame.display.flip()
